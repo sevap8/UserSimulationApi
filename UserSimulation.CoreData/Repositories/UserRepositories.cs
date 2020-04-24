@@ -5,7 +5,6 @@ using System.Text;
 using UserSimulation.Core.Models;
 using UserSimulation.Core.Repositories;
 using UserSimulation.Data.Context;
-using UserSimulation.Data.Context.Interfaces;
 
 namespace UserSimulation.Data.Repositories
 {
@@ -56,12 +55,14 @@ namespace UserSimulation.Data.Repositories
 
         public void Put(int id, UserEntity userEntity)
         {
-            var some = DataContext.Data.Where(a => a.Id == id);
-
-            foreach (var item in some)
+            for (int i = 0; i < DataContext.Data.Count; i++)
             {
-                var index = DataContext.Data.IndexOf(item);
-                DataContext.Data[index] = userEntity;
+                if (DataContext.Data[i].Id == id)
+                {
+                    var index = DataContext.Data.IndexOf(DataContext.Data[i]);
+                    DataContext.Data[index] = userEntity;
+                }
+                break;
             }
 
         }

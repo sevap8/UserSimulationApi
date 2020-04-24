@@ -14,7 +14,6 @@ using UserSimulation.Core.Repositories;
 using UserSimulation.Core.Services;
 using UserSimulation.Core.Services.Interfaces;
 using UserSimulation.Data.Context;
-using UserSimulation.Data.Context.Interfaces;
 using UserSimulation.Data.Repositories;
 
 namespace UserSimulation.Api
